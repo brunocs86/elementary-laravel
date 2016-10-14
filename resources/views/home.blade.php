@@ -29,13 +29,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Elementary Laravel</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Elementary Laravel</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/about') }}">About</a></li>
+                <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>
           </div><!--/.navbar-collapse -->
         </div>
