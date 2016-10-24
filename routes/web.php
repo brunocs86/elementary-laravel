@@ -23,6 +23,11 @@ Route::get('contact', function() {
     return view('contact');
 });
 
-Route::post('contact', function() {
-    //
+use Illuminate\Http\Request;
+Route::post('contact', function(Request $request) {
+    \Validator::make($request->all(), [
+        'name' => 'required|string',
+        'email' => 'required|email',
+        'comment' => 'required|string'
+    ])->validate();
 });
