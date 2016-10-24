@@ -22,6 +22,12 @@
                     </div>
                 @endif
 
+                @if (session('success_message'))
+                    <div class="alert alert-success">
+                        {{ session('success_message') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ url('/contact') }}">
                     {{ csrf_field() }}
                     <div class="form-group">

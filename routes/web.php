@@ -30,4 +30,10 @@ Route::post('contact', function(Request $request) {
         'email' => 'required|email',
         'comment' => 'required|string'
     ])->validate();
+
+    // TODO: Send email here or do something
+
+    return redirect('/contact')->with([
+        'success_message' => 'Your message has been sent!'
+    ]);
 });
