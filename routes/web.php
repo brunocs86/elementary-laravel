@@ -24,6 +24,8 @@ Route::get('contact', function() {
 });
 
 use Illuminate\Http\Request;
+use App\Mail\FeedbackReceived;
+use Illuminate\Support\Facades\Mail;
 Route::post('contact', function(Request $request) {
     \Validator::make($request->all(), [
         'name' => 'required|string',
@@ -31,7 +33,8 @@ Route::post('contact', function(Request $request) {
         'comment' => 'required|string'
     ])->validate();
 
-    // TODO: Send email here or do something
+    Mail::to($request->get('email'))
+        ->send(new FeedbackReceived($request->get('name'), $request->get('comment')));
 
     return redirect('/contact')->with([
         'success_message' => 'Your message has been sent!'

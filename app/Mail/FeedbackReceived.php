@@ -11,14 +11,18 @@ class FeedbackReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
+    public $comment;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $comment)
     {
-        //
+        $this->name = $name;
+        $this->comment = $comment;
     }
 
     /**
@@ -28,6 +32,8 @@ class FeedbackReceived extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this
+            ->from('you@company.com')
+            ->view('emails.contact');
     }
 }
